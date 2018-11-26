@@ -49,8 +49,6 @@
             android:background="@drawable/contact_search_box_edittext_keyword_background"
             android:drawableLeft="@drawable/magnifying_glass"
             android:hint="搜索全国城市（中文）"
-
-
             />
         <ListView
             android:id="@+id/list_view"

@@ -35,26 +35,55 @@
             android:textColor="#ffffffff"
             android:textSize="22.0sp" />
 
-        <ImageView
-            android:id="@+id/title_update_btn"
-            android:layout_width="45.0dip"
-            android:layout_height="45.0dip"
-            android:layout_alignParentRight="true"
-            android:layout_gravity="center"
-            android:src="@drawable/title_update"
-            android:visibility="visible" />
-        <ImageView
-            android:id="@+id/title_share"
-            android:layout_width="45.0dip"
-            android:layout_height="45.0dip"
-            android:layout_toLeftOf="@id/title_update_btn"
-            android:src="@drawable/title_share" />
-        <ImageView
-            android:id="@+id/title_location"
-            android:layout_width="45.0dip"
-            android:layout_height="45.0dip"
-            android:layout_toLeftOf="@id/title_share"
-            android:src="@drawable/base_action_bar_action_city" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true">
+            <!--定位-->
+            <ImageView
+                android:id="@+id/title_location"
+                android:layout_width="45.0dip"
+                android:layout_height="45.0dip"
+                android:src="@drawable/base_action_bar_action_city" />
+            <!--分享-->
+            <ImageView
+                android:id="@+id/title_share"
+                android:layout_width="45.0dip"
+                android:layout_height="45.0dip"
+                android:src="@drawable/title_share" />
+            <FrameLayout
+                android:id="@+id/title_update"
+                android:layout_width="45dp"
+                android:layout_height="45dp">
+                <!--刷新-->
+                <ImageView
+                    android:id="@+id/title_update_btn"
+                    android:layout_width="45.0dip"
+                    android:layout_height="45.0dip"
+                    android:src="@drawable/title_update" />
+                <!--旋转-->
+                <!--indeterminateBehavior：repeat-->
+                <!--默认值，当动画结束一次循环之后从头开始再次播放，-->
+                <!--cycle-->
+                <!--当动画结束一次循环之后，反向播放动画-->
+                <!--indeterminateDrawable是画的图像方法，也就是让哪一个图片旋转-->
+                <ProgressBar
+                    android:id="@+id/title_update_progress"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone"
+                    android:indeterminate="true"
+
+                    android:indeterminateDrawable="@drawable/anim_update"
+
+                    />
+
+
+            </FrameLayout>
+
+        </LinearLayout>
+
     </RelativeLayout>
     <!--今日天气界面-->
     <LinearLayout
@@ -248,6 +277,40 @@
             </RelativeLayout>
         </RelativeLayout>
         <!-- 六日天气信息 -->
+     <RelativeLayout
+        android:id="@+id/sixDay_waeather"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="10.0dip">
+        <!--展示滑动⻚⾯-->
+        <android.support.v4.view.ViewPager
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        android:id="@+id/viewpager"
+        >
+        </android.support.v4.view.ViewPager>
+        <!--两个⼩点-->
+        <LinearLayout
+        android:id="@+id/indicator"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_alignParentBottom="true">
+        <ImageView
+        android:id="@+id/iv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:src="@drawable/page_indicator_focused"/>
+        <ImageView
+        android:id="@+id/iv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:src="@drawable/page_indicator_unfocused"/>
+        </LinearLayout>
+     </RelativeLayout>
         <!-- 广告等信息 -->
 
     </LinearLayout>
